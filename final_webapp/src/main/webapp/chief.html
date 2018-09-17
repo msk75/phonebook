@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<title>Persian</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap-theme.css" rel="stylesheet" />
+
+<link href="css/styleSheet.css" rel="stylesheet" />
+<body dir="rtl">
+	<nav class="navbar navbar-default" dir="rtl">
+		<div class="container-fluid" dir="rtl">
+			<div class="navbar-header" dir="rtl">
+				<a class="navbar-brand" href="#"dir="rtl"> دفترچه تلفن</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active" dir="rtl"><a href="#" id="log" class="nav-link" onclick="document.getElementById('id01').style.display='block'">ورود</a></li>
+				<li class="nav-item" dir="rtl"><a href="#" id="reg" class="nav-link"
+					onclick="document.getElementById('id02').style.display='block'">عضویت</a></li>
+				<li class="active" dir="rtl"><a href="#" id="userinf" style="display: none;" onclick="adminUser();">اطلاعات کاربران</a></li>
+				<li dir="rtl"><a href="#" id="useract" style="display: none;" onclick="activeUser();">فعالیت کاربران</a></li>
+				<li dir="rtl"><a href="#" id="cont" style="display: none;" onclick="adminContact();">مخاطبین</a></li>
+				<li dir="rtl"><a href="#" style="display: none;" class="nav-link" id="search" onclick="document.getElementById('id03').style.display='block'">جستجو</a> </li>
+				<li dir="rtl"><a href="#" id="chat" style="display: none;" onclick="chat();">چت روم</a></li>
+				<li dir="rtl"><a href="#" id="ex" style="display: none;" onclick="logout();">خروج</a></li>
+				<li dir="rtl"><a href="#" id="pers" style="display: none;" onclick="pers();">فارسی</a></li>
+				<li dir="rtl"><a href="#" id="eng" style="display: block;" onclick="eng();">انگلیسی</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container" dir="rtl">
+		<div style="height: 150px; font-family: cursive;">
+			<h3>سیستم مدیریت دفترچه تلفن</h3>
+			<p>یک سیستم ساده برای راحت شدن ارتباطات شما</p>
+		</div>
+
+
+		<div id="id01" class="modal">
+			<form id="logform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id01').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="usrname"
+							type="text" class="form-control" name="usrname"
+							placeholder="نام کاربری را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="password"
+							type="password" class="form-control" name="password"
+							placeholder="رمز عبور خود را وارد کنید" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="login();" class="btn btn-primary">ورود</button>
+						<button type="button"
+							onclick="document.getElementById('id01').style.display='none'"
+							class="btn btn-primary">انصراف</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div  id="id02" class="modal">
+			<form id="regform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id02').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="fname"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="نام خود را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="lname"
+							type="text" class="form-control" name="lnametxt"
+							placeholder="نام خانوادگی خود را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="uname"
+							type="text" class="form-control" name="unametxt"
+							placeholder="نام کاربری خود را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="pass"
+							type="password" class="form-control" name="password"
+							placeholder="رمز عبور خود را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="email"
+							type="text" class="form-control" name="emailtxt"
+							placeholder="ایمیل خود را وارد کنید" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-home"></i></span> <input id="address"
+							type="text" class="form-control" name="addresstxt"
+							placeholder="آدرس خود را وارد کنید" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="adduser();" class="btn btn-primary">ثبت نام</button>
+						<button type="button"
+							onclick="document.getElementById('id02').style.display='none'"
+							class="btn btn-primary">انصراف</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="id03" class="modal">
+			<form id="sform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id03').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="fnsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="جستجو بر اساس نام" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="lnsearch"
+							type="text" class="form-control" name="lnametxt"
+							placeholder="جستجو بر اساس نام خانوادگی" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-phone"></i></span> <input id="mnsearch"
+							type="text" class="form-control" name="mnametxt"
+							placeholder="جستجو بر اساس شماره موبایل" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-phone-alt"></i></span> <input id="phnsearch"
+							type="text" class="form-control" name="phnametxt"
+							placeholder="جستجو بر اساس شماره تلفن" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="mailsearch"
+							type="text" class="form-control" name="mailtxt"
+							placeholder="جستجو بر اساس ایمیل" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-home"></i></span> <input id="addsearch"
+							type="text" class="form-control" name="addtxt"
+							placeholder="جستجو بر اساس آدرس" required>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="searchContact();"
+							class="btn btn-primary">جستجو</button>
+						<button type="button"
+							onclick="document.getElementById('id03').style.display='none'"
+							class="btn btn-primary">انصراف</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+		<div class="container">
+		<form id="stableform">
+			<table id="stable" class="table table-striped">
+				<thead>
+					<tr>
+						<th>شناسه</th>
+						<th>نام</th>
+						<th>نام خانوادگی</th>
+						<th>شماره موبایل</th>
+						<th>شماره تلفن</th>
+						<th>ایمیل</th>
+						<th>آدرس</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+
+						<th><input type="text" class="form-control input-sm"
+							id="idcall" name="idtxt" required style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="fnam" name="fnametxt" required style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="lnam" class="w3-input w3-border" name="lnametxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="mobile" class="w3-input w3-border" name="mobiletxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="phone" class="w3-input w3-border" name="phonetxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="mail" class="w3-input w3-border" name="emailtxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="addr" class="w3-input w3-border" name="addresstxt" required
+							style="display: none;"></th>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+			<table id="btable" style="display: none;" dir="ltr">
+			<tr>
+				<th><button id="insertbtn" onclick="addcall();" class="btn btn-primary">افزودن</button></th>
+				<th><button id="updatebtn" onclick="editcall();" class="btn btn-primary">ویرایش</button></th>
+				<th><button id="deletebtn" onclick="removecall();" class="btn btn-primary">حذف</button></th>
+			</tr>
+		</table>
+		<form id="utableform">
+		<table id="utable" style="display: none;" class="table table-striped">
+			<tr>
+				<th>شناسه</th>
+				<th>نام</th>
+				<th>نام خانوادگی</th>
+				<th>نام کاربری</th>
+				<th>رمزعبور</th>
+				<th>ایمیل</th>
+				<th>آدرس</th>
+				<th>نقش</th>
+			</tr>
+			<tr>
+
+				<th><input type="text" class="form-control input-sm" id="idlb"
+					name="idtxt" class="w3-input w3-border" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="fnamlb" name="fnametxt" class="w3-input w3-border" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="lnamlb" class="w3-input w3-border" name="lnametxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="unamelb" class="w3-input w3-border" name="unametxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="passlb" class="w3-input w3-border" name="passtxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="maillb" class="w3-input w3-border" name="emailtxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="addrlb" class="w3-input w3-border" name="addresstxt" required></th>
+				<th><select id="rolelb">
+						<option id="1" value="normal">عضو عادی</option>
+						<option id="2" value="manager">مدیر</option>
+						<option id="3" value="chief">مدیر کل</option>
+				</select></th>
+			</tr>
+		</table>
+</form>
+		<table id="ubtable" style="display: none;" dir="ltr">
+			<tr>
+				<th><button onclick="editUser();" class="btn btn-primary">ویرایش</button></th>
+				<th><button onclick="removeUser();" class="btn btn-primary">حذف</button></th>
+			</tr>
+		</table>
+		<table id="activ" style="display: none;" dir="ltr"
+			class="table table-striped">
+			<tr>
+				<th>شناسه</th>
+				<th>فعالیت ها</th>
+				<th>شناسه کاربر</th>
+			</tr>
+		</table>
+		</div>
+	</div>
+	<div class="container text-center">
+		<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+			<p>
+				Powered by <a href="#" target="_blank"> MSK.75 </a>
+			</p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/Json.js"></script>
+</body>
+</html>

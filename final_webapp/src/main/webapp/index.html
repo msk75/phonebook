@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<title>Index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap-theme.css" rel="stylesheet" />
+
+<link href="css/styleSheet.css" rel="stylesheet" />
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Phone Book</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#" id="log" class="nav-link" onclick="document.getElementById('id01').style.display='block'">LOGIN</a></li>
+				<li class="nav-item"><a href="#" id="reg" class="nav-link" onclick="document.getElementById('id02').style.display='block'">REGISTER</a></li>
+				<li class="active"><a href="#" id="userinf" style="display: none;" onclick="adminUser();">UserInfo</a></li>
+				<li><a href="#" id="useract" style="display: none;" onclick="activeUser();">UserActivity</a></li>
+				<li><a href="#" id="cont" style="display: none;" onclick="adminContact();">Contacts</a></li>
+				<li><a href="#" style="display: none;" class="nav-link" id="search" onclick="document.getElementById('id03').style.display='block'">Search</a> </li>
+				<li><a href="#" id="chat" style="display: none;" onclick="chat();">ChatRoom</a></li>
+				<li><a href="#" id="ex" style="display: none;" onclick="logout();">Exit</a></li>
+				<li dir="rtl"><a href="#" id="pers" style="display: block;" onclick="pers();">PERSIAN</a></li>
+				<li dir="rtl"><a href="#" id="eng" style="display: none;" onclick="eng();">ENGLISH</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div style="height: 150px; font-family: cursive;">
+			<h3>Phone Book Management System</h3>
+			<p>A simple system to make communication easier for you.</p>
+		</div>
+
+
+		<div id="id01" class="modal">
+			<form id="logform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id01').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="usrname"
+							type="text" class="form-control" name="usrname"
+							placeholder="UserName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="password"
+							type="password" class="form-control" name="password"
+							placeholder="PassWord" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="login();" class="btn btn-primary">Login</button>
+						<button type="button"
+							onclick="document.getElementById('id01').style.display='none'"
+							class="btn btn-primary">Cancel</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div  id="id02" class="modal">
+			<form id="regform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id02').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="fname"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="FirstName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="lname"
+							type="text" class="form-control" name="lnametxt"
+							placeholder="LastName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="uname"
+							type="text" class="form-control" name="unametxt"
+							placeholder="UserName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="pass"
+							type="password" class="form-control" name="password"
+							placeholder="PassWord" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="email"
+							type="text" class="form-control" name="emailtxt"
+							placeholder="Email" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-home"></i></span> <input id="address"
+							type="text" class="form-control" name="addresstxt"
+							placeholder="Address" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="adduser();" class="btn btn-primary">Register</button>
+						<button type="button"
+							onclick="document.getElementById('id02').style.display='none'"
+							class="btn btn-primary">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="id03" class="modal">
+			<form id="sform" class="modal-content animate">
+				<div class="modal-header">
+					<div class="input-group">
+						<span
+							onclick="document.getElementById('id03').style.display='none'"
+							class="input-group-addon"><i
+							class="glyphicon glyphicon-remove"></i></span>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="fnsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By FirstName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="lnsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By LastName" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-phone"></i></span> <input id="mnsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By MobileNumber" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-phone-alt"></i></span> <input id="phnsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By PhoneNumber" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="mailsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By Email" required>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-home"></i></span> <input id="addsearch"
+							type="text" class="form-control" name="fnametxt"
+							placeholder="Search By Address" required>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<div class="input-group-btn">
+						<button type="submit" onclick="searchContact();"
+							class="btn btn-primary">Search</button>
+						<button type="button"
+							onclick="document.getElementById('id03').style.display='none'"
+							class="btn btn-primary">Cancel</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+		<div class="container">
+		<form id="stableform">
+			<table id="stable" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>MobileNumber</th>
+						<th>PhoneNumber</th>
+						<th>Email</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+
+						<th><input type="text" class="form-control input-sm"
+							id="idcall" name="idtxt" required style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="fnam" name="fnametxt" required style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="lnam" class="w3-input w3-border" name="lnametxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="mobile" class="w3-input w3-border" name="mobiletxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="phone" class="w3-input w3-border" name="phonetxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="mail" class="w3-input w3-border" name="emailtxt" required
+							style="display: none;"></th>
+						<th><input type="text" class="form-control input-sm"
+							id="addr" class="w3-input w3-border" name="addresstxt" required
+							style="display: none;"></th>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+			<table id="btable" style="display: none;" dir="ltr">
+			<tr>
+				<th><button id="insertbtn" onclick="addcall();" class="btn btn-primary">Insert</button></th>
+				<th><button id="updatebtn" onclick="editcall();" class="btn btn-primary">Update</button></th>
+				<th><button id="deletebtn" onclick="removecall();" class="btn btn-primary">Delete</button></th>
+			</tr>
+		</table>
+		<form id="utableform">
+		<table id="utable" style="display: none;" class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>UserName</th>
+				<th>Password</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Role</th>
+			</tr>
+			<tr>
+
+				<th><input type="text" class="form-control input-sm" id="idlb"
+					name="idtxt" class="w3-input w3-border" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="fnamlb" name="fnametxt" class="w3-input w3-border" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="lnamlb" class="w3-input w3-border" name="lnametxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="unamelb" class="w3-input w3-border" name="unametxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="passlb" class="w3-input w3-border" name="passtxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="maillb" class="w3-input w3-border" name="emailtxt" required></th>
+				<th><input type="text" class="form-control input-sm"
+					id="addrlb" class="w3-input w3-border" name="addresstxt" required></th>
+				<th><select id="rolelb">
+						<option id="1" value="normal">Normal</option>
+						<option id="2" value="manager">Manager</option>
+						<option id="3" value="chief">Chief</option>
+				</select></th>
+			</tr>
+		</table>
+</form>
+		<table id="ubtable" style="display: none;" dir="ltr">
+			<tr>
+				<th><button onclick="editUser();" class="btn btn-primary">Update</button></th>
+				<th><button onclick="removeUser();" class="btn btn-primary">Delete</button></th>
+			</tr>
+		</table>
+		<table id="activ" style="display: none;" dir="ltr"
+			class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Actives</th>
+				<th>User_Id</th>
+			</tr>
+		</table>
+		</div>
+	</div>
+	<div class="container text-center">
+		<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+			<p>
+				Powered by <a href="#" target="_blank"> MSK.75 </a>
+			</p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/Json.js"></script>
+</body>
+</html>

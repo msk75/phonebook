@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<title>Index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/styleSheet.css" rel="stylesheet" />
+<style>
+body, h1 {
+	font-family: "Raleway", Arial, sans-serif
+}
+
+h1 {
+	letter-spacing: 6px
+}
+
+.w3-row-padding img {
+	margin-bottom: 12px
+}
+</style>
+<body>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-content" style="max-width: 1500px">
+
+		<!-- Header -->
+		<header class="w3-panel w3-center w3-opacity"
+			style="padding: 100px 16px">
+			<h1 class="w3-xlarge">Phone Book Management System</h1>
+
+			<div class="w3-padding-32">
+				<div class="w3-bar w3-border">
+					<a href="#" class="w3-bar-item w3-button" onclick="loadcall();">LOGIN</a>
+					<a href="#" class="w3-bar-item w3-button w3-light-grey"
+						onclick="document.getElementById('id02').style.display='block'">REGISTER</a>
+				</div>
+			</div>
+		</header>
+
+		<!-- Photo Grid -->
+		<div class="w3-row-padding w3-grayscale"
+			style="margin-bottom: 128px; max-width: 1500px">
+			<div class="w3-half">
+
+				<div id="id01" class="modal">
+
+					<form class="modal-content animate" action="">
+						<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('id01').style.display='none'"
+								class="close" title="Close Modal">&times;</span> <img src=""
+								alt="" class="">
+						</div>
+
+						<div class="container" dir="ltr">
+							<label for="uname"><b>UserName</b></label> <input type="text"
+								placeholder="Enter UserName" name="uname" required> <label
+								for="psw"><b>PassWord</b></label> <input type="password"
+								placeholder="Enter Password" name="psw" required>
+
+							<button type="submit" class="w3-bar-item w3-button w3-light-grey">Login</button>
+							<button type="button"
+								onclick="document.getElementById('id01').style.display='none'"
+								class="w3-bar-item w3-button w3-light-grey">Cancel</button>
+						</div>
+					</form>
+				</div>
+				<div id="id02" class="modal">
+					<form class="modal-content animate">
+						<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('id02').style.display='none'"
+								class="close" title="Close Modal">&times;</span> <img src=""
+								alt="" class="">
+						</div>
+
+						<div class="container" dir="ltr">
+							<label><b>FirstName</b></label> <input type="text"
+								placeholder="Enter FirstName" name="fnametxt" id="fname"
+								required> <label><b>LastName</b></label> <input
+								type="text" placeholder="Enter LastName" name="lnametxt"
+								id="lname" required> <label><b>UserName</b></label> <input
+								type="text" placeholder="Enter UserName" name="unametxt"
+								id="uname" required> <label><b>Password</b></label> <input
+								type="password" placeholder="Enter Password" name="passtxt"
+								id="pass" required> <label><b>Email</b></label> <input
+								type="text" placeholder="Enter Email" name="emailtxt" id="email"
+								required> <label><b>Address </b></label> <input
+								type="text" placeholder="Enter Address" name="addresstxt"
+								id="address" required>
+							<button type="submit" onclick="adduser();"
+								class="w3-bar-item w3-button w3-light-grey">Register</button>
+							<button type="button"
+								onclick="document.getElementById('id02').style.display='none'"
+								class="w3-bar-item w3-button w3-light-grey">Cancel</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="main " dir="ltr">
+
+		<table id="stable">
+			<tr>
+				<th>Id</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>MobileNumber</th>
+				<th>PhoneNumber</th>
+				<th>Email</th>
+				<th>Address</th>
+			</tr>
+		</table>
+	</div>
+	<footer
+		class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+		<p>
+			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
+				target="_blank" class="w3-hover-text-green">MSK.75</a>
+		</p>
+	</footer>
+	<script>
+		function loadcall() {
+			$.ajax({
+				type : "GET",
+				url : "api/contact",
+				async : true,
+				crossDomain : true,
+				cache : false,
+				success : function(response) {
+					$.each(response, function(calls, value) {
+						$("#stable").append(
+								$("<tr>").append(
+										"<td>" + value.id + "</td>" + "<td>"
+												+ value.fname + "</td>"
+												+ "<td>" + value.lname
+												+ "</td>" + "<td>"
+												+ value.phoneNumber + "</td>"
+												+ "<td>" + value.mobileNumber
+												+ "</td>" + "<td>"
+												+ value.email + "</td>"
+												+ "<td>" + value.address
+												+ "</td>"));
+					});
+				},
+			// error: function(xhr, status , error){
+			// alert(xhr.responseText + status);
+			// }
+			})
+		}
+	</script>
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+
+</body>
+</html>

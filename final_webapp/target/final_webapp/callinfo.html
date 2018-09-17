@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/styleSheet.css" rel="stylesheet" />
+<style>
+body, h1 {
+	font-family: "Raleway", Arial, sans-serif
+}
+
+h1 {
+	letter-spacing: 6px
+}
+
+.w3-row-padding img {
+	margin-bottom: 12px
+}
+</style>
+<body>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-content" style="max-width: 1500px">
+
+		<!-- Header -->
+		<header class="w3-panel w3-center w3-opacity"
+			style="padding: 100px 16px">
+			<h1 class="w3-xlarge">Phone Book Management System</h1>
+
+			<div class="w3-padding-32">
+				<div class="w3-bar w3-border">
+					<a href="#" class="w3-bar-item w3-button"
+						onclick="document.getElementById('stable').style.display='block';loadcall();document.getElementById('btable').style.display='block';">Contacts</a>
+					<a href="#" class="w3-bar-item w3-button w3-light-grey" onclick="">Edit
+						user info</a> <a href="#" class="w3-bar-item w3-button" onclick="">Exit</a>
+				</div>
+			</div>
+		</header>
+	</div>
+
+	<!-- Photo Grid -->
+	<div class="w3-row-padding w3-grayscale" style="margin-bottom: 128px">
+		<div class="w3-half">
+
+			<div class="main " dir="ltr">
+
+				<table id="stable" style="display: none;">
+					<tr>
+						<th>Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>MobileNumber</th>
+						<th>PhoneNumber</th>
+						<th>Email</th>
+						<th>Address</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th><input type="text" id="fname" 
+							name="fnametxt" required></th>
+						<th><input type="text" id="lname" class="w3-input w3-border"
+							name="lnametxt" required></th>
+						<th><input type="text" id="mobile" class="w3-input w3-border"
+							name="mobiletxt" required></th>
+						<th><input type="text" id="phone" class="w3-input w3-border"
+							  name="phonetxt" required></th>
+						<th><input type="text" id="email" class="w3-input w3-border"
+							name="emailtxt" required></th>
+						<th><input type="text" id="address" class="w3-input w3-border"
+							name="addresstxt" required></th>
+					</tr>
+				</table>
+				<div>
+					<table id="btable" style="display: none;" dir="ltr">
+						<tr>
+							<th><button onclick="addcall();"
+									class="w3-bar-item w3-button w3-light-grey">Insert</button></th>
+							<th><button onclick="editcall();"
+									class="w3-bar-item w3-button w3-light-grey">Update</button></th>
+							<th><button onclick="removecall();"
+									class="w3-bar-item w3-button w3-light-grey">Delete</button></th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer
+		class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+		<p>
+			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
+				target="_blank" class="w3-hover-text-green">MSK.75</a>
+		</p>
+	</footer>
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/Json.js"></script>
+</body>
+</html>
